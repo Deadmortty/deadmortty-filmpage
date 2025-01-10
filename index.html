@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deadmortty</title>
+  <link rel="icon" href="public/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+
+  <style>
+    .bgGrid {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, #eef2ff 1px, transparent 1px), linear-gradient(to bottom, #eef2ff 1px, transparent 1px);
+    }
+
+    * {
+      font-family: 'JetBrains Mono', sans-serif;
+      font-weight: 300;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Press Start 2P", system-ui;
+    }
+
+    .blueShadow {
+      box-shadow: 0px 1px 12px rgb(155, 153, 153);
+    }
+
+    .lightShadow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .lightShadow p {
+      position: relative;
+      z-index: 2;
+    }
+
+    .lightShadow::after {
+      position: absolute;
+      content: '';
+      background: rgb(12, 12, 14);
+      opacity: 0.06;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 100%;
+      transition-duration: 200ms;
+      z-index: 0;
+    }
+
+    .lightShadow:hover::after {
+      transform: translateX(100%);
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+
+    <header>
+      <div class="blueShadow" id="title-div">
+        <a target="_blank" href="https://www.instagram.com/deadmortty/">
+          <h1>Deadmortty</h1>
+        </a><span>— welcome to the world of stories.</span>
+      </div>
+
+      <div id="para-section">
+        <p>Cinema is a bridge that connects us through stories, emotions, and experiences.
+          <br>Just as films shape me, they leave an indelible mark on everyone who watches them. So, I want to
+          know—what are your four favorite films?
+          <br>Share the stories that moved you, made you laugh, or stayed with you long after the credits rolled.
+        </p>
+
+      </div>
+    </header>
+
+    <main id="main-part">
+      <section id="section-one">
+        <form action="" id="form">
+
+          <div id="input-div" class="form-divs">
+            <input type="text" class="blueShadow lightShadow" id="filmInput"
+              placeholder="What are your 4 favorite films of all time?" maxlength="50" required>
+          </div>
+          <div id="button-div" class="form-divs"><button id="addFilmBtn" class="lightShadow blueShadow">Add
+              Film</button>
+              <button id="clearBtn" class="lightShadow blueShadow">Clear All</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="section-two">
+        <a target="_blank" href="films.html">
+          <h3>Check your films list here <span class="arrow">&#8599;</span> </h3>
+        </a>
+
+      </section>
+    </main>
+
+  </div>
+
+
+  <div class="blueShadow image-container">
+
+    <img src="public/brokeback.jpg" class="images">
+    <img src="public/davis.jpg" class="images">
+    <img src="public/cherry.jpg" class="images">
+    <img src="public/manchester.jpg" class="images">
+
+  </div>
+
+  <div class="blueShadow image-container">
+
+    <img src="public/boy.jpg" class="images">
+    <img src="public/boyhood.jpg" class="images">
+    <img src="public/intersteller.jpg" class="images">
+    <img src="public/lala.jpg" class="images">
+
+  </div>
+
+  <footer>
+    <a target="_blank" class="section-two" type="Email" href="mailto:ephraimmorty10@gmail.com">
+      <h3>Email <span class="arrow">&#8599;</span></h3>
+    </a>
+  </footer>
+
+
+</body>
+
+<script>
+  let filmArray = JSON.parse(localStorage.getItem('favoriteFilms')) || []; // Checks if there is a saved list of favorite films in the browser's localStorage.
+  // localStorage.getItem('favoriteFilms') looks for an item with the key 'favoriteFilms'.
+  //If the item exists, JSON.parse() converts the saved string back into an array of film names. 
+  let addFilmButton = document.getElementById('addFilmBtn')
+  const input = document.getElementById('filmInput');
+  addFilmButton.addEventListener('click', addFilm)
+
+  function addFilm(event) {
+    event.preventDefault()
+    // a function that is executed when the user clicks the button Add Film.
+    // console.log('Add Film Button Clicked.');
+
+    if (input.value != '') {
+      const filmName = input.value.trim();
+      if (filmArray.length < 4) {
+        filmArray.push(filmName);
+        localStorage.setItem('favoriteFilms', JSON.stringify(filmArray));
+        input.value = ''; // Clear the input after adding
+        alert('Film added successfully!');
+      } else {
+        alert('You can only add up to 4 films.');
+      }
+    } else {
+      alert("Please enter a film name and then click the button.")
+    }
+  }
+
+
+  let clearButton = document.getElementById('clearBtn')
+
+  clearButton.addEventListener('click', emptyTheArray)
+
+function emptyTheArray(event) {
+  event.preventDefault()
+  localStorage.removeItem('favoriteFilms');  // Clears the film list from localStorage
+  ulFilmList.innerHTML = ''
+  console.log('Array emptied');
+}
+
+
+  // let newFilmArray = JSON.parse(localStorage.getItem('favoriteFilms'))
+  // console.log(newFilmArray)
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,252 @@
+:root {
+    --color-background:  #1B1B1B;
+    --color-accent: #B0B0B0;
+    --color-seethrough: rgba(176, 176, 176, 0.8);
+  --color-text: #F5F5F5;
+    /* --color-highlight: #FF1744; */
+
+--secondary-bg:  #2C2C2C;
+--secondary-text:  #FFFFFF;
+--secondary-highlight: #FFD700;
+--secondary-accent: #A9A9A9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+     
+    /* background-color: var(--color-five); */
+    background-color: var(--color-background);
+    color: var(--color-text);
+    /* padding: 25px; */
+    /* width: 100vw; */
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* gap: 3rem; */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition-duration: 200ms;
+    position: relative;
+ }
+
+ body p {
+
+    display: flex;
+    /* align-content: center; */
+    justify-content: center;
+    padding-top: 5.9em;
+    font-size: 1rem;
+    font-weight: 400;
+    
+ }
+
+ a {
+    text-decoration: none;
+    color: var(--color-text);
+    transition-duration: 200ms;
+    background-color: transparent;
+
+ }
+
+ h1 {
+    color: black;
+    font-weight: 470;
+    background: none;
+ }
+
+ h1:hover {
+    color: var(--color-text);
+ }
+
+ a:hover, #arrow:hover {
+     color: var(--color-text);
+     text-decoration: none;
+ }
+
+
+header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+     gap: 1.2rem;
+    justify-content: center;
+}
+
+
+#title-div {
+    display: flex;
+     justify-content: center;
+     position: fixed;
+     top: 0;
+     z-index: 2;
+     align-items: center;
+     gap: 0.5rem;
+     background-color: var(--color-seethrough);
+     padding: 1.3em;
+     width: 100%;
+
+}
+
+#title-div span {
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+#para-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 2rem;
+}
+
+/* let's style main sections now  */
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+}
+
+form {
+    display: flex;
+     justify-content: space-evenly;
+     padding: 1.2em;
+     gap: 5em;
+     align-items: center;
+
+    
+}
+
+.form-divs {
+    display: flex;
+    gap: 2rem;
+    /* padding: 1.7rem; */
+}
+
+input {
+    width: 440px; /* Set the width of the input */
+    height: 45px; /* Set the height */
+    padding: 5px 10px; /* Add some inner spacing */
+    margin-bottom: 10px; /* Add space between inputs */
+
+}
+
+#filmInput {
+    background-color: #fdfeff;
+    border: none;
+}
+
+
+#filmInput:hover {
+    background-color: #f6f8fa;
+    border: none;
+    color: var(--color-background);
+}
+
+#filmInput:focus {
+    outline: var(--color-accent);
+    background: white;
+   }
+
+button {
+    width: 60px;
+    height: 40px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 0.2em;
+    border: none;
+    cursor: pointer;
+    /* background-color: var(--color-accent);
+    color: var(--color-background); */
+}
+
+/* button:hover {
+    /* background-color: #166bb0; */
+
+
+
+
+.image-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em 0em;
+    margin: 2em;
+
+}
+
+
+
+.section-two {
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+  color: var(--color-highlight);
+  text-decoration: none;
+  transition-duration: 200ms;
+  margin-right: auto;
+  padding-left: 2em;
+}
+
+.section-two span {
+    transition-duration: 200ms;
+    text-decoration: none;
+}
+
+.section-two:hover span {
+    padding-left: 0.45rem; 
+}
+
+.section-two::after {
+    content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 1.5px;
+  background: transparent;
+  opacity: 0.7;
+  transition-duration: 230ms;
+}
+
+
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    transition-duration: 230ms;
+    padding: 1em 1em 2em 0em;
+}
+
+  footer h3 {
+    margin: auto;
+
+  }
+
+  footer span {
+    text-decoration: none;
+  }
+
+.arrow:hover {
+color: var(--secondary-accent);
+    
+}
+
+
+@media (min-width: 640px) {
+    body {
+        flex-wrap: wrap;
+    }
+}
