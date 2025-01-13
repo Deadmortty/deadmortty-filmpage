@@ -73,15 +73,6 @@
           <h1>Deadmortty</h1>
         </a><span>— welcome to the world of stories.</span>
       </div>
-
-      <div id="para-section">
-        <p>Cinema is a bridge that connects us through stories, emotions, and experiences.
-          <br>Just as films shape me, they leave an indelible mark on everyone who watches them. So, I want to
-          know—what are your four favorite films?
-          <br>Share the stories that moved you, made you laugh, or stayed with you long after the credits rolled.
-        </p>
-
-      </div>
     </header>
 
     <main id="main-part">
@@ -140,7 +131,7 @@
 <script>
   let filmArray = JSON.parse(localStorage.getItem('favoriteFilms')) || []; // Checks if there is a saved list of favorite films in the browser's localStorage.
   // localStorage.getItem('favoriteFilms') looks for an item with the key 'favoriteFilms'.
-  //If the item exists, JSON.parse() converts the saved string back into an array of film names. 
+  //If the item exists, JSON.parse() converts the saved string back into an array of film names. If there isn't then the empty array gets passed instead. 
   let addFilmButton = document.getElementById('addFilmBtn')
   const input = document.getElementById('filmInput');
   addFilmButton.addEventListener('click', addFilm)
